@@ -22,17 +22,14 @@ app.get("/userstats",authenticator,authorization("manager"),(req,res)=>{
 
 app.use("/user",userRouter);
 
-con()
-async function con(){
+
+
+app.listen(process.env.port,async()=>{
     try {
         await connection
         console.log("Connected to DB");
     } catch (error) {
         console.log(" ERROR while connecting to DB");
     }
-}
-
-app.listen(process.env.port,async()=>{
-    
     console.log("Server is running at "+process.env.port);
 })
