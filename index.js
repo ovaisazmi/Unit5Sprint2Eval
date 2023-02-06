@@ -9,6 +9,10 @@ const app=express();
 app.use(express.json());
 app.use(cookieParser())
 
+app.get("/",(req,res)=>{
+    res.send("Server is Working Fine");
+})
+
 app.get("/goldrate",authenticator,(req,res)=>{
     res.send("Gold Rate Route");
 })
